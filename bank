@@ -1,0 +1,22 @@
+class Accounts():
+    
+    '''DOCSTRG: BANK ACCOUNT CLASS THAT CALCULATES DEPOSITS AND WITHDRAWALS '''
+    # DEFINE THE TWO ATTRIBUTES: owner and balance
+    def __init__ (self, owner,balance):
+        self.owner = owner
+        self.balance = balance
+    # ADD DEPOSITS TO THE BALANCE    
+    def deposit(self, amount):
+        self.balance +=amount
+        print(f'You just added {amount} to the balance')
+        print(f'Your total balance is {self.balance}')
+    # SUBTRACT WITHDRAWALS FROM THE BALANCE WITHOUT BEING OVERDRAWN
+    def withdraw (self,draw):
+        if draw <= self.balance:
+            self.balance -= draw
+            print ('Withdraw accepted')
+            print (f'Your current balance is ${self.balance}')
+        else:
+            print('Sorry! Not enough funds!')
+    def __str__(self):
+        return f'Owner:{self.owner} \nBalance is ${self.balance}'
